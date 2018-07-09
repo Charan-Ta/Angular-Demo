@@ -4,18 +4,16 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 //routing
 import {AppRoutingModule } from './routing/app.routing';
-//import { SeconddashboardComponent } from './components/seconddashboard/seconddashboard.component';
-
+import {SharedService} from './services/shared.service';
 @NgModule({
   declarations: [
-    AppComponent,
-    //SeconddashboardComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SharedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

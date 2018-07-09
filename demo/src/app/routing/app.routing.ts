@@ -10,18 +10,18 @@ const appRoutes: Routes= [
         pathMatch: 'full'
     },
     {
+        path: 'seconddashboard',
+        loadChildren: 'src/app/modules/seconddashboard/seconddashboard.module#SeconddashboardModule',
+        pathMatch: 'full'
+    },
+    {
         path: '',
         redirectTo: 'dashboard',
         pathMatch: 'full'
     },
-    // {
-    //     path: '**',
-    //     redirectTo: 'dashboard',
-    //     pathMatch: 'full'
-    // },
     {
-        path: 'seconddashboard',
-        loadChildren: 'src/app/modules/seconddashboard/seconddashboard.module#SeconddashboardModule',
+        path: '**',
+        redirectTo: 'dashboard',
         pathMatch: 'full'
     }
 ];
@@ -40,7 +40,7 @@ export const DashboardRoutingModule : ModuleWithProviders = RouterModule.forChil
 
 const SecondDashboardRoutes : Routes=[
     {
-      path:'seconddashboard',
+      path:'',
       component: SeconddashboardComponent
     }
   ];

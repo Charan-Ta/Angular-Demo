@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import {DashboardRoutingModule} from '../../routing/app.routing';
+import {SecondDashboardRoutingModule} from '../../routing/app.routing';
 import {SeconddashboardComponent} from '../../components/seconddashboard/seconddashboard.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    SecondDashboardRoutingModule
   ],
   declarations: [
     SeconddashboardComponent
-  ]
+  ],
+  providers:[]
 })
 export class SeconddashboardModule { }
