@@ -1,3 +1,14 @@
-<input type="text" [(ngModel)]="name" placeholder="Enter your name">
-<p>You entered {{name}}</p>
-<button (click)="goToSecondDash()">Go to second dashboard</button>
+<nav class="navbar1 clearfix">
+    <a  *ngFor="let element of elements, let i=index" (click)="updateSecondNav(element)">{{element}}</a>
+    <div class="dropdown">
+    <div *ngFor="let element of elements1, let i=index" class="navbar1-right">
+    <a class="dropbtn" (click)="showDropDownFunction(i)">{{element}}</a>
+    </div>
+    <div class="dropdown-content" *ngIf="showDropDown"> 
+    <div *ngFor="let element of dropdownElements">
+    <a href="#" (click)="updateSecondNav(element)">{{element}}</a>
+    </div>
+    </div>
+    </div>
+</nav>
+<seconddashboard [subNav]="subNav" [parentNavName]="parentNavName"></seconddashboard>

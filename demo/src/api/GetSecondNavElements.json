@@ -1,0 +1,27 @@
+{
+ "responseCode":"C001",
+ "responseMessage":"success",
+ "data":[{
+  "category":"Inbox",
+  "name":"Pending Actions"
+ },{
+  "category":"Inbox",
+  "name":"Pending Notifications"
+ },
+{
+  "category":"Inbox",
+  "name":"Completed Actions"
+},{
+  "category":"Stores",
+  "name":"All stores"
+},{
+  "category":"Stores",
+  "name":"Favorites"
+},{
+  "category":"Stores",
+  "name":"Templates"
+},{
+  "category":"Stores",
+  "name":"Saved Search Results \u25BE"
+}]
+}

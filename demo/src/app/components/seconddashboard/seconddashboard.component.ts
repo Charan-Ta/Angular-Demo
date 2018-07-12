@@ -1,27 +1,34 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit, OnChanges, Input, SimpleChange} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import { SharedService } from '../../services/shared.service'; 
 
 @Component({
-  selector: 'app-seconddashboard',
+  selector: 'seconddashboard',
   templateUrl: './seconddashboard.component.html',
   styleUrls: ['./seconddashboard.component.css']
 })
-export class SeconddashboardComponent implements OnInit {
-  public name1;
-  public name2;
+export class SeconddashboardComponent implements OnInit, OnChanges {
+  @Input('subNav') subNav;
+  @Input ('parentNavName') parentNavName;
   constructor(private routes: ActivatedRoute,private _shared:SharedService) { }
 
-  ngOnInit() {
-    this.name1 = this._shared.getUsername();
-    console.log(this.name1);
-    this.routes.queryParams.subscribe(res=>{
-      this.name2 = res;
-    });
+  ngOnInit() { }
+
+  ngOnChanges(changes:{[prop:string]:SimpleChange}){
+    if(changes.subNav && changes.subNav.currentValue!=undefined){
+      this.setSecondNavElements(changes.subNav.currentValue);
+    }
+    if(changes.parentNavName && changes.parentNavName.currentValue!=undefined){
+      this.setParentNavName(changes.parentNavName.currentValue);
+    }
+  }
+
+  setSecondNavElements(response){
+    this.subNav = response;
+  }
+
+  setParentNavName(response){
+    this.parentNavName =response;
   }
 
 }
-
-//1. ngOnChanges 
-//2. ngOnInit
-//3. 

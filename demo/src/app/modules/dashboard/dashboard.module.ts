@@ -1,20 +1,27 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import {DashboardRoutingModule} from '../../routing/app.routing';
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
+import {SeconddashboardComponent} from '../../components/seconddashboard/seconddashboard.component';
+import { FilterPipe } from '../../pipes/common.pipe';
+
+import { DashboardService } from '../../services/dashboard.service';
+import { HttpModule } from '@angular/http';
+
+import { HttpCaller } from '../../http/http.client';
 
 @NgModule({
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+    HttpModule
   ],
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    SeconddashboardComponent,
+    FilterPipe
   ],
-  providers:[]
+  providers:[HttpCaller,DashboardService]
 })
 export class DashboardModule { }
