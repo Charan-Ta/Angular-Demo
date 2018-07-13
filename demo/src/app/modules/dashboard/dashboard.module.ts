@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 import {DashboardRoutingModule} from '../../routing/app.routing';
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
-import {SeconddashboardComponent} from '../../components/seconddashboard/seconddashboard.component';
-import { FilterPipe } from '../../pipes/common.pipe';
+import { InboxComponent } from '../../components/inbox/inbox.component';
+import { MerchandiseComponent } from '../../components/merchandise/merchandise.component';
+
 
 import { DashboardService } from '../../services/dashboard.service';
 import { HttpModule } from '@angular/http';
@@ -15,12 +17,13 @@ import { HttpCaller } from '../../http/http.client';
   imports: [
     CommonModule,
     DashboardRoutingModule,
+    SharedModule,
     HttpModule
   ],
   declarations: [
     DashboardComponent,
-    SeconddashboardComponent,
-    FilterPipe
+    InboxComponent,
+    MerchandiseComponent
   ],
   providers:[HttpCaller,DashboardService]
 })

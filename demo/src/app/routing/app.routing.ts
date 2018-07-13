@@ -1,12 +1,13 @@
 import { ModuleWithProviders} from '@angular/core';
 import { RouterModule, Routes} from '@angular/router';
 import { DashboardComponent } from "./../components/dashboard/dashboard.component";
+import { InboxComponent } from './../components/inbox/inbox.component';
+import { MerchandiseComponent } from './../components/merchandise/merchandise.component';
 
 const appRoutes: Routes= [
     {
         path: 'dashboard',
-        loadChildren: 'src/app/modules/dashboard/dashboard.module#DashboardModule',
-        pathMatch: 'full'
+        loadChildren: 'app/modules/dashboard/dashboard.module#DashboardModule'
     },
     {
         path: '',
@@ -26,7 +27,21 @@ export const AppRoutingModule : ModuleWithProviders = RouterModule.forRoot(appRo
 const DashboardRoutes : Routes=[
   {
     path:'',
-    component: DashboardComponent
+    component: DashboardComponent,
+    children :[
+        {
+            path: '',
+            redirectTo: 'inbox'
+        },
+        {
+            path: 'inbox',
+            component: InboxComponent
+        },
+        {
+            path: 'merchandise',
+            component: MerchandiseComponent
+        }
+    ]
   }
 ];
 

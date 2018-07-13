@@ -1,17 +1,7 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class SharedService {
-  private username:string;
   constructor() { }
-
-  getUsername(){
-    return this.username;
-  }
-  setUsername(username:string){
-    this.username=username;
-  }
 
 }

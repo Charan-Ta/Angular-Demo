@@ -1,6 +1,6 @@
 import {Injectable, Inject } from '@angular/core';
 import {Http, Headers, Response} from '@angular/http';
-import { throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import {map,catchError} from 'rxjs/operators';
 import { SERVICE_CONSTANTS, ServiceConstantsConfig } from '../app.constants';
 
@@ -14,7 +14,7 @@ export class HttpCaller {
     }
 
     public catchErr(error:Response){
-        return throwError(error || "Something went wrong");
+        return Observable.throw(error || "Something went wrong");
     }
 
     public updateUrl(url){

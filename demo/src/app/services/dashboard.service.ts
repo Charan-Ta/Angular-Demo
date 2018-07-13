@@ -1,9 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { SERVICE_CONSTANTS, ServiceConstantsConfig } from '../app.constants';
 import {HttpCaller} from '../http/http.client';
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class DashboardService {
 
   constructor(private _http:HttpCaller,@Inject(SERVICE_CONSTANTS) public _ServiceConstants?:ServiceConstantsConfig) { }

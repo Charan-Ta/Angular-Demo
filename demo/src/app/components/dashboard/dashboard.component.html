@@ -1,14 +1,9 @@
-<nav class="navbar1 clearfix">
-    <a  *ngFor="let element of elements, let i=index" (click)="updateSecondNav(element)">{{element}}</a>
-    <div class="dropdown">
-    <div *ngFor="let element of elements1, let i=index" class="navbar1-right">
-    <a class="dropbtn" (click)="showDropDownFunction(i)">{{element}}</a>
-    </div>
-    <div class="dropdown-content" *ngIf="showDropDown"> 
-    <div *ngFor="let element of dropdownElements">
-    <a href="#" (click)="updateSecondNav(element)">{{element}}</a>
-    </div>
-    </div>
-    </div>
-</nav>
-<seconddashboard [subNav]="subNav" [parentNavName]="parentNavName"></seconddashboard>
+<nav style="display: flex; justify-content: space-between;">
+    <li><a [routerLink]="['inbox']">StoreFront Operations</a></li>
+    <li><a [routerLink]="['inbox']">Inbox</a></li>
+    <li><a [routerLink]="['merchandise']">Merchandise</a></li>
+    <li><a [routerLink]="['inbox']">Stores</a></li>
+    <li><a [routerLink]="['inbox']">Admin</a></li>
+  </nav>
+  <router-outlet></router-outlet>
+  
