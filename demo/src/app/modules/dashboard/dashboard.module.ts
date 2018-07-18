@@ -6,6 +6,7 @@ import {DashboardRoutingModule} from '../../routing/app.routing';
 import { DashboardComponent } from '../../components/dashboard/dashboard.component';
 import { InboxComponent } from '../../components/inbox/inbox.component';
 import { MerchandiseComponent } from '../../components/merchandise/merchandise.component';
+import { StoresComponent } from '../../components/stores/stores.component';
 
 
 import { DashboardService } from '../../services/dashboard.service';
@@ -23,7 +24,8 @@ import { HttpCaller } from '../../http/http.client';
   declarations: [
     DashboardComponent,
     InboxComponent,
-    MerchandiseComponent
+    MerchandiseComponent,
+    StoresComponent
   ],
   providers:[HttpCaller,DashboardService]
 })

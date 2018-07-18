@@ -2,7 +2,7 @@
     <li><a [routerLink]="['inbox']">StoreFront Operations</a></li>
     <li><a [routerLink]="['inbox']">Inbox</a></li>
     <li><a [routerLink]="['merchandise']">Merchandise</a></li>
-    <li><a [routerLink]="['inbox']">Stores</a></li>
+    <li><a [routerLink]="['stores']" [queryParams]="{limit:10,sortBy:'StoreName',sortDir:'asc',startFrom:0}">Stores</a></li>
     <li><a [routerLink]="['inbox']">Admin</a></li>
   </nav>
   <router-outlet></router-outlet>

@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+.table-scroll .ui-table .ui-table-tbody > tr > th,
+.table-scroll .ui-table .ui-table-tbody > tr > td{
+    overflow: hidden;
+    /* word-wrap: break-word; */
+    text-overflow: ellipsis;
+    line-height: 12px;
+    font-size: 12px;
+}

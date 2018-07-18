@@ -7,7 +7,8 @@ export class ServiceConstantsConfig{
 export const SERVICE_CONSTANTS_CONFIG: ServiceConstantsConfig={
     apiRootUrl:'api/',
     API : {
-     "SecondNav":"GetSecondNavElements.json"
+     "SecondNav":"GetSecondNavElements.json",
+     "Stores":"Stores.json"
     }
 }
 @NgModule({

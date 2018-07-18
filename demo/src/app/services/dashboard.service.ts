@@ -10,4 +10,9 @@ export class DashboardService {
     const url = this._ServiceConstants.API['SecondNav'];
     return this._http.get(url);
   }
+
+  public GetStoresData(){
+    const url = this._ServiceConstants.API['Stores'];
+    return this._http.get(url);
+  }
 }

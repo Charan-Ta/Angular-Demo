@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from '../../components/navbar/navbar.component';
 import { FilterPipe } from '../../pipes/common.pipe';
-
+import {TableModule} from 'primeng/table';
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    TableModule
   ],
   declarations: [ 
     NavbarComponent,
@@ -13,7 +14,8 @@ import { FilterPipe } from '../../pipes/common.pipe';
   ],
   exports:[
     NavbarComponent,
-    FilterPipe
+    FilterPipe,
+    TableModule
   ]
 })
 export class SharedModule { }

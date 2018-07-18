@@ -1,0 +1,22 @@
+<p-table class="table-scroll" [value]="storesData"  [columns]="cols" [scrollable]="true" 
+ scrollHeight="400px" [virtualScroll]="true" [resizableColumns]="true" [lazy]="true" virtualScroll="virtualScroll" [totalRecords]="datasource.length" [loading]="loading" (onLazyLoad)="loadDataOnScroll($event)">
+<ng-template pTemplate="colgroup" let-cols>
+  <colgroup>
+      <col *ngFor="let col of cols" >
+  </colgroup>
+</ng-template>  
+<ng-template pTemplate="header" let-cols>
+      <tr>
+          <th *ngFor="let col of cols" pResizableColumn>
+              {{col}}
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-storesData>
+      <tr>
+          <td *ngFor="let col of cols">
+                  {{storesData[col]}}
+          </td>
+      </tr>
+  </ng-template>
+</p-table>
