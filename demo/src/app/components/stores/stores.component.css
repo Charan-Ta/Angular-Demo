@@ -1,0 +1,16 @@
+#infinite-scroller {
+  height: 500px;
+  width: 700px;
+  overflow: scroll;
+  padding: 0;
+  list-style: none;
+  position: relative;
+}
+
+#infinite-scroller thead th,
+#infinite-scroller tbody tr td
+{
+  padding: 15px;
+  border: 1px solid #CCC;
+  border-collapse: collapse;
+}

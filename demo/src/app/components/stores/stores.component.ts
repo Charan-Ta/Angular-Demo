@@ -8,45 +8,41 @@ import {ActivatedRoute,Router} from '@angular/router';
   styleUrls: ['./stores.component.css']
 })
 export class StoresComponent implements OnInit {
-  public parameters;
-  public datasource=[];
   public storesData=[];
+  public scrollCallback;
+  public parameters;
   public cols;
-  public loading;
-  public updatedParams;
-  constructor(private _dashboardService: DashboardService, private _route:ActivatedRoute, private _changeDetectorRef:ChangeDetectorRef, private _router:Router) { }
-
-  ngOnInit() {
+  constructor(private _dashboardService: DashboardService, private _route:ActivatedRoute, private _changeDetectorRef:ChangeDetectorRef, private _router:Router) { 
+   this.scrollCallback = this.getStoreDetails.bind(this);
   }
 
-  ngAfterViewChecked(){
-    this._changeDetectorRef.detectChanges();
+  ngOnInit() {
+    this.getRouteParams();
   }
   
   public getRouteParams(){
     this._route.queryParams.subscribe(params=>{
       this.parameters = params;
+      this.attachDataListener();
     });
   }
 
-  public loadDataOnScroll(event:any){
-    this.loading = true;
-    this.getRouteParams();
-    //backend call imitation. make real backend call here with query params.
-    setTimeout(() => {
-      this.loading = false;
-      this._dashboardService.GetStoresData().subscribe(res=>{
-        this.datasource=res;
-        this.cols = Object.keys(this.datasource[0]);
-        this.storesData=this.storesData.concat(this.datasource.slice(this.parameters['startFrom'],Number(this.parameters['limit'])+Number(this.parameters['startFrom'])));
-        //update query parameters
-        let startFrom = Number(this.parameters['startFrom']);
-        startFrom += Number(this.parameters['limit']);
-        this.updatedParams = {limit:'10',sortBy:'StoreName',sortDir:'asc',startFrom:startFrom};
-        if(startFrom<=this.datasource.length)
-        this._router.navigate([],{queryParams:this.updatedParams});
-      });
-      }, 250);
+  public attachDataListener(){
+    this._dashboardService.GetStoresData(this.parameters).subscribe(res=>{
+      this.cols=Object.keys(res[0]);
+      this.storesData=res;
+    });
+  }
+
+  public getStoreDetails(){
+     return this._dashboardService.GetStoresData(this.parameters).do(this.processData);
+  }
+
+   private processData = (datasource) => {
+        this.storesData = this.storesData.concat(datasource);
+     // //update parameters and the route and then send to the backend here
+     //    this.parameters = {limit:10,sortBy:'StoreName',sortDir:'asc',startFrom:Number(this.parameters['limit'])+Number(this.parameters['startFrom'])};
+     //    this._router.navigate([],{queryParams:this.parameters});
   }
 
 }

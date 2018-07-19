@@ -1,6 +1,7 @@
 import { Injectable, Inject } from '@angular/core';
 import { SERVICE_CONSTANTS, ServiceConstantsConfig } from '../app.constants';
 import {HttpCaller} from '../http/http.client';
+import {Http} from '@angular/http';
 @Injectable()
 export class DashboardService {
 
@@ -11,7 +12,8 @@ export class DashboardService {
     return this._http.get(url);
   }
 
-  public GetStoresData(){
+  public GetStoresData(parameters){
+    const data = parameters;
     const url = this._ServiceConstants.API['Stores'];
     return this._http.get(url);
   }
