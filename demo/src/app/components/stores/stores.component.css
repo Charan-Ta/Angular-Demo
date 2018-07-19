@@ -1,16 +1,35 @@
 #infinite-scroller {
   height: 500px;
-  width: 700px;
+  width: 100%;
   overflow: scroll;
   padding: 0;
   list-style: none;
   position: relative;
 }
 
-#infinite-scroller thead th,
+#infinite-scroller thead tr th,
 #infinite-scroller tbody tr td
 {
   padding: 15px;
   border: 1px solid #CCC;
   border-collapse: collapse;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#infinite-scroller thead tr th {
+  position: relative;
+}
+#infinite-scroller thead tr th span.ui-column-resizer {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  width: 8px;
+  height: 100%;
+  padding: 0;
+  cursor: e-resize;
+  border: 1px solid transparent;
 }

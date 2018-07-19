@@ -1,9 +1,14 @@
 <div id="infinite-scroller" appInfiniteScroller scrollPerecnt="70" [immediateCallback]="false" [scrollCallback]="scrollCallback">
   <table>
     <thead>
-      <th *ngFor="let col of cols">{{col}}</th>
+      <tr>
+        <th *ngFor="let col of cols">
+          <span class="ui-column-resizer" (mousedown) = "onMouseDown($event)"></span>
+          <span>{{ col }}</span> 
+        </th>
+      </tr>
     </thead>
-    <tbody>
+    <tbody class="table-body">
       <tr *ngFor="let item of storesData">
         <td *ngFor="let col of cols">{{item[col]}}</td>
       </tr>
